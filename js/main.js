@@ -64,7 +64,7 @@ function DeleteMethod(IndexOf){
     localStorage.setItem("localValue", JSON.stringify(contact))
     loopContact();  
 }
-function search(){
+/*function search(){
  var x = false;
     var usearch = document.getElementById("Search").value;
     for (i=0 ; i < contact.length ; i++ )
@@ -88,6 +88,7 @@ function search(){
 			}
     
 }
+/*
 
 
 
