@@ -44,7 +44,7 @@ function loopContact(){
     for( i = 0 ; i < contact.length ; i++)
         {
             
-            valueContact = valueContact + "<tr><td>"+i+"</td><td>"+contact[i].uName+"</td><td>"+contact[i].uDomain+"</td><td>"+contact[i].uAge+"</td><td>"+contact[i].uSalary+"</td>/*<td><button class='btn btn-danger' onclick='DeleteMethod("+i+")'>Delete</button></td></tr>"
+            valueContact = valueContact + "<tr><td>"+i+"</td><td>"+contact[i].uName+"</td><td>"+contact[i].uDomain+"</td><td>"+contact[i].uAge+"</td><td>"+contact[i].uSalary+"</td><td><button class='btn btn-danger' onclick='DeleteMethod("+i+")'>Delete</button></td></tr>"
             
             
         }
