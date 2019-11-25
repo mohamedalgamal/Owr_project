@@ -4,37 +4,44 @@
         <link href="css/main.css" rel="stylesheet">
     </head>
     <body>
-
-    <div class="container w-50 m-auto py-5">
-        <h1 class="text-center pb-3 text-primary">Enter Your Data</h1>
-        <div class="form-group">
-            <input placeholder="Enter Your User Name" class="form-control" id="UserName">     
+       <div class="container w-50">
+           <h1 class="text-primary  text-center">Enter Your Data </h1>
+           <div>
+               <input class="form-control form-group" placeholder="Enter Email Address" id="userEmail">
+               <input class="form-control form-group" placeholder="First Name" id="userFName" disabled>
+               <input class="form-control form-group" placeholder="Second Name" id="userCName" disabled>
+               <input class="form-control form-group" placeholder="Your Domian" id="userDomain" disabled>
+               <input class="form-control form-group" placeholder="Enter Your Age" id="userAge">
+               <input class="form-control form-group" placeholder="Enter Your Salary" id="userSalary">
+           </div>
+           <button class="btn bg-secondary text-white" onclick="addMethod()">Add Data</button>
+           <div>
+        <button class="btn bg-secondary text-white float-right" onclick="search()">Search</button>
+        <input class="form-control w-25 float-right" placeholder="Search" id="Search">       
+           </div>
         </div>
-        <div class="form-group">
-            <input placeholder="Enter Your Age" class="form-control" id="UserAge">     
-        </div>
-        <div class="form-group">
-            <input placeholder="Enter Your Email Address" class="form-control" id="UserEmail">     
-        </div>
-        <div class="form-group">
-            <input placeholder="Enter Your Salary" class="form-control" id="UserSalary">     
-        </div>
-        <button class="btn btn-outline-success" onclick="My_function()">Done</button>
-    </div>
-        
         <div class="container py-3">
             <table class="table text-center">
                 <thead>
                     <tr>
+                        <th>ID</th>
                         <th>Name</th>
+                        <th>Domian</th>
                         <th>Age</th>
-                        <th>Address</th>
-                        <th>Email</th>
+                        <th>Salary</th>
                     </tr>
                 </thead>
-                <tbody id="MyTable"></tbody>
+                <tbody id="tebleBody">
+                
+                
+                
+                </tbody>
             </table>
         </div>
+        
+        
+
+
     <script src="js/main.js"></script>
     </body>
 </html>

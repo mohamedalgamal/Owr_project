@@ -1,41 +1,93 @@
-var ArrayData =[]
-function My_function(){
-    var UserName = document.getElementById("UserName").value;
-    var UserAge = document.getElementById("UserAge").value;
-    var UserEmail = document.getElementById("UserEmail").value;
-    var UserSalary = document.getElementById("UserSalary").value;
-    var alldata = {Uname : UserName , Uage :UserAge , Uemail:UserEmail , Usalary : UserSalary}
-    ArrayData.push(alldata);
-    loopdata();
-    cleardata();
-    
-    
-    
-}
-function loopdata(){
-    
-    var data = "";
-    for(i = 0 ; i < ArrayData.length ; i++)
+var contact ="";
+var objectContact ="";
+if(localStorage.getItem("localValue") == null)
+    {
+        contact=[]
+    }
+else
+    {
+        contact = JSON.parse(localStorage.getItem("localValue"))
+    }
+loopContact();
+function addMethod(){
+var userEmailValue = document.getElementById("userEmail").value;
+var dot = userEmailValue.indexOf(".")
+var attEmail = userEmailValue.indexOf("@")
+var userFirstName  = userEmailValue.substring(0 , dot)
+var userSecondName = userEmailValue.substring(dot+1 , attEmail)
+var afterAtt = userEmailValue.substring(attEmail+1)
+document.getElementById("userFName").value = userFirstName
+document.getElementById("userCName").value  = userSecondName
+document.getElementById("userDomain").value = afterAtt
+var userFirstNameValue = userFirstName
+var userSecondNameValue = userSecondName
+var uNameUserValue = userFirstNameValue+" "+userSecondNameValue;
+var userDomainValue = afterAtt  
+var userAgeValue = document.getElementById("userAge").value
+var userSalaryValue = document.getElementById("userSalary").value
+if (userEmailValue =="" ||  userAgeValue=="" || userSalaryValue=="")
+    {
+        alert("Please Enter Your Data")
+    }
+    else
         {
-        
-            data = data +"<tr><td>"+ArrayData[i].Uname+"</td><td>"+ArrayData[i].Uage+"</td><td>"+ArrayData[i].Uemail+"</td><td>"+ArrayData[i].Usalary+"</td></tr>"
+            objectContact = {uName: uNameUserValue , uDomain : userDomainValue , uAge : userAgeValue , uSalary : userSalaryValue  }
+            contact.push(objectContact)
+            localStorage.setItem("localValue" ,JSON.stringify(contact)  )
+            loopContact();
+            clearData();   
+        }
+
+}
+function loopContact(){
+    var valueContact ="";
+    for( i = 0 ; i < contact.length ; i++)
+        {
+            
+            valueContact = valueContact + "<tr><td>"+i+"</td><td>"+contact[i].uName+"</td><td>"+contact[i].uDomain+"</td><td>"+contact[i].uAge+"</td><td>"+contact[i].uSalary+"</td><td><button class='btn btn-danger' onclick='DeleteMethod("+i+")'>Delete</button></td></tr>"
+            
             
         }
-            
-            document.getElementById("MyTable").innerHTML = data;
-   
+    document.getElementById("tebleBody").innerHTML = valueContact;
 }
-function  cleardata(){
-    
-    
-    document.getElementById("UserName").value="";
-   document.getElementById("UserAge").value="";
-    document.getElementById("UserEmail").value="";
-   document.getElementById("UserSalary").value="";
-    
-    
-    
+function clearData(){
+    document.getElementById("userEmail").value = "";
+    document.getElementById("userFName").value = "";
+    document.getElementById("userCName").value = "";
+    document.getElementById("userDomain").value = "";
+    document.getElementById("userAge").value = "";
+    document.getElementById("userSalary").value = "";
+  
+}
+function DeleteMethod(IndexOf){
+    contact.splice(IndexOf)
+    localStorage.setItem("localValue", JSON.stringify(contact))
+    loopContact();  
+}
+function search(){
+ var x = false;
+    var usearch = document.getElementById("Search").value;
+    for (i=0 ; i < contact.length ; i++ )
+        {
+            if(contact[i].uName == usearch)
+                {
+                    x = true
+                
+                }
+            
+            
+            
+        }
+		if (x==false)
+			{
+				alert("Done")
+			}
+		else
+			{
+			alert("user not exist")
+			}
     
 }
 
-	
+
+
