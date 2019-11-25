@@ -44,7 +44,7 @@ function loopContact(){
     for( i = 0 ; i < contact.length ; i++)
         {
             
-            valueContact = valueContact + "<tr><td>"+i+"</td><td>"+contact[i].uName+"</td><td>"+contact[i].uDomain+"</td><td>"+contact[i].uAge+"</td><td>"+contact[i].uSalary+"</td></tr>"
+            valueContact = valueContact + "<tr><td>"+i+"</td><td>"+contact[i].uName+"</td><td>"+contact[i].uDomain+"</td><td>"+contact[i].uAge+"</td><td>"+contact[i].uSalary+"</td>/*<td><button class='btn btn-danger' onclick='DeleteMethod("+i+")'>Delete</button></td></tr>"
             
             
         }
@@ -64,31 +64,7 @@ function DeleteMethod(IndexOf){
     localStorage.setItem("localValue", JSON.stringify(contact))
     loopContact();  
 }
-/*function search(){
- var x = false;
-    var usearch = document.getElementById("Search").value;
-    for (i=0 ; i < contact.length ; i++ )
-        {
-            if(contact[i].uName == usearch)
-                {
-                    x = true
-                
-                }
-            
-            
-            
-        }
-		if (x==false)
-			{
-				alert("Done")
-			}
-		else
-			{
-			alert("user not exist")
-			}
-    
-}
-/*
+
 
 
 
