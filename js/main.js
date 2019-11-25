@@ -60,7 +60,7 @@ function clearData(){
   
 }
 function DeleteMethod(IndexOf){
-    contact.splice(IndexOf)
+    contact.splice(IndexOf , 1)
     localStorage.setItem("localValue", JSON.stringify(contact))
     loopContact();  
 }
